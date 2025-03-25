@@ -8,7 +8,7 @@
 Currently, `godot.cookie` generates:
 - A simple main menu
 - A 'settings' system, wherein user settings are persisted to local storage via a `.cfg` file
-- Scaffolding for a flexible & scene tree structure (see below)
+- Scaffolding for a flexible & robust scene tree structure (see below)
 
 ## Scene Tree Structure
 `godot.cookie` generates scaffolding to support the following general scene tree structure for your games:
