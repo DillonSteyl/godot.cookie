@@ -1,4 +1,5 @@
 {
   "project_name": "My Godot Game",
-  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}"
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+  "world_type": ["Node2D", "Node3D"]
 }

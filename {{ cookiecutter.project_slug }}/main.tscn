@@ -5,7 +5,7 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="{{ cookiecutter.world_type }}" parent="."]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

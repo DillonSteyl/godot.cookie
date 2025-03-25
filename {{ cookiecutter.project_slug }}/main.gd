@@ -3,7 +3,7 @@ extends Node
 
 const MAIN_MENU_SCENE = preload("res://ui/main_menu/main_menu.tscn")
 
-@onready var world: Node2D = $World
+@onready var world: {{ cookiecutter.world_type }} = $World
 @onready var ui: Control = $UI
 
 
@@ -26,7 +26,7 @@ func set_ui(ui_node: Control) -> void:
 		ui.add_child(ui_node)
 
 
-func set_world(world_node: Node2D) -> void:
+func set_world(world_node: {{ cookiecutter.world_type }}) -> void:
 	for child in world.get_children():
 		child.queue_free()
 
