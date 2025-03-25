@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgppg2ly351q0"]
+
+[ext_resource type="Script" uid="uid://cvpglh42sldgo" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
+[ext_resource type="PackedScene" uid="uid://ci3o7i2gjwc4n" path="res://ui/settings/settings_menu.tscn" id="2_mu8pm"]
+
+[sub_resource type="Animation" id="Animation_mu8pm"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_omy8q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_omy8q"]
+_data = {
+&"RESET": SubResource("Animation_omy8q"),
+&"fade_in": SubResource("Animation_mu8pm")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhj5c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -80.5
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "{{ cookiecutter.project_name }}"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit"
+
+[node name="SettingsMenu" parent="." instance=ExtResource("2_mu8pm")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_omy8q")
+}

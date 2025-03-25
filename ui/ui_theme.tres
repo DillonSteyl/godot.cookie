@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://daokerupce7cs"]
+
+[ext_resource type="FontFile" uid="uid://bhtyie4uuehqr" path="res://common/assets/fonts/Rubik-Light.ttf" id="1_udl1o"]
+
+[resource]
+default_font = ExtResource("1_udl1o")
+default_font_size = 24
